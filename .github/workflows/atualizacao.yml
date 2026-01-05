@@ -1,0 +1,33 @@
+name: Atualizacao Longitude
+
+on:
+  schedule:
+    - cron: '0 9 * * *' # Roda as 06:00 da manha
+  workflow_dispatch:
+
+jobs:
+  update-feed:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+    
+    - run: npm install puppeteer
+    
+    - name: 🤖 Rodar Robô
+      timeout-minutes: 15
+      run: node index.js
+
+    - name: 📄 Gerar XML
+      run: node gerar_xml.js
+
+    - name: 💾 Salvar no GitHub
+      run: |
+        git config --global user.name 'Robo Longitude'
+        git config --global user.email 'robo@long.com'
+        git add feed_longitude.xml
+        git commit -m "Update diario" || echo "Sem mudancas"
+        git push
