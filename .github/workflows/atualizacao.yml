@@ -11,12 +11,17 @@ jobs:
     
     steps:
     - uses: actions/checkout@v3
+
     - uses: actions/setup-node@v3
       with:
         node-version: '18'
     
-    - run: npm install puppeteer
-    
+    # CORREÇÃO AQUI: Instala pacotes E baixa o Chrome
+    - name: 📥 Instalar Dependencias e Navegador
+      run: |
+        npm install
+        npx puppeteer browsers install chrome
+
     - name: 🤖 Rodar Robô
       timeout-minutes: 15
       run: node index.js
