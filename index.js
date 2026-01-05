@@ -2,9 +2,8 @@ const puppeteer = require('puppeteer');
 const fs = require('fs');
 
 (async () => {
-  console.log('🚀 Iniciando Robô LONGITUDE - Versão CLOUD...');
+  console.log('🚀 Iniciando Robô LONGITUDE - Versão FINAL (HD + CSS + Endereço)...');
   
-  // CONFIGURAÇÃO PARA GITHUB ACTIONS
   const browser = await puppeteer.launch({ 
     headless: "new",
     defaultViewport: null,
@@ -57,103 +56,115 @@ const fs = require('fs');
     
     try {
       await page.goto(link, { waitUntil: 'domcontentloaded', timeout: 60000 });
-
-      // Rola para carregar imagens
-      await page.evaluate(async () => {
-        await new Promise((resolve) => {
-          let totalHeight = 0;
-          const distance = 500;
-          const timer = setInterval(() => {
-            window.scrollBy(0, distance);
-            totalHeight += distance;
-            if (totalHeight >= document.body.scrollHeight) {
-              clearInterval(timer);
-              resolve();
-            }
-          }, 100);
-        });
-      });
+      await page.evaluate(() => window.scrollBy(0, 500));
       await new Promise(r => setTimeout(r, 1500));
 
       // --- EXTRAÇÃO ---
       const dadosPage = await page.evaluate((urlAtual) => {
         const dados = { url: urlAtual };
         const text = document.body.innerText;
-        const html = document.body.innerHTML;
 
-        // 1. TÍTULO E ID (Da URL para garantir precisão)
+        // 1. TÍTULO E ID
         const parts = urlAtual.split('/');
-        // Pega o último pedaço (nome) e o antepenúltimo (cidade)
         const slugNome = parts[parts.length - 1] || parts[parts.length - 2];
         const slugCidade = parts[parts.length - 3] || 'SP';
         
-        dados.id = 'LONG-' + slugNome.replace(/[^a-z0-9]/g, '').slice(-15).toUpperCase();
+        dados.id = 'LONG-' + slugNome.replace(/[^a-z0-9]/g, '').slice(-25).toUpperCase();
         dados.titulo = slugNome.replace(/-/g, ' ').toUpperCase();
         dados.cidade = slugCidade.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
         dados.estado = 'SP';
-        dados.tipo = 'Apartamento'; // Padrão Longitude
+        dados.tipo = 'Apartamento';
 
-        // 2. STATUS
-        dados.status = 'Em Obras';
-        if (text.includes('Lançamento')) dados.status = 'Lançamento';
-        if (text.includes('Pronto para morar') || text.includes('Entregue')) dados.status = 'Pronto para Morar';
-
-        // 3. ÁREA E QUARTOS
-        dados.area = '0';
-        dados.quartos = '2';
-        
-        // Regex Area
-        const matchArea = text.match(/(\d{2,3})\s*m²/);
-        if (matchArea) dados.area = matchArea[1];
-        
-        // Regex Quartos
-        const matchQ = text.match(/(\d)\s*dorm/i) || text.match(/(\d)\s*quartos/i);
-        if (matchQ) dados.quartos = matchQ[1];
-
-        // 4. BAIRRO E ENDEREÇO
+        // 2. ENDEREÇO (AQUI ENTRA A SUA DESCOBERTA!)
         dados.endereco = 'A Consultar';
         dados.bairro = 'A Consultar';
-        // Tenta pegar endereço após palavras chave
-        const matchEnd = text.match(/(?:Visite|Localização|Endereço|Fica na)\s*[:]?\s*(.*?)(?:\n|\.|This)/i);
-        if (matchEnd) {
-            let endBruto = matchEnd[1].trim();
-            if (endBruto.length > 10 && endBruto.length < 100) {
-                dados.endereco = endBruto;
-                // Tenta chutar o bairro (penultimo item antes da cidade)
-                const partsEnd = endBruto.split(',');
-                if (partsEnd.length > 1) dados.bairro = partsEnd[partsEnd.length - 2].trim();
+
+        // Procura a tag <strong> com texto "Aqui"
+        const strongs = Array.from(document.querySelectorAll('strong'));
+        const labelAqui = strongs.find(el => el.innerText.trim().toUpperCase() === 'AQUI');
+
+        if (labelAqui && labelAqui.nextElementSibling) {
+            // O endereço está no span logo depois do "Aqui"
+            const spanEnd = labelAqui.nextElementSibling;
+            const textoEnd = spanEnd.innerText.trim();
+            
+            // Geralmente vem assim: "Rua X, 123 \n Bairro Y, Cidade/UF"
+            const linhas = textoEnd.split(/\n/);
+            
+            if (linhas.length > 0) dados.endereco = linhas[0].trim(); // Pega a Rua
+            
+            if (linhas.length > 1) {
+                // Tenta extrair o bairro da segunda linha
+                const resto = linhas[1].trim(); 
+                const partesResto = resto.split(',');
+                if (partesResto.length > 0) dados.bairro = partesResto[0].trim();
             }
         }
 
-        // 5. FOTOS (Filtro Matemático)
-        const imgs = Array.from(document.querySelectorAll('img'));
-        const fotosBoas = imgs
-            .filter(img => {
-                const src = (img.src || '').toLowerCase();
-                // Ignora ícones pequenos (menos de 300px)
-                if (img.naturalWidth > 0 && img.naturalWidth < 300) return false;
-                if (src.includes('svg') || src.includes('icon') || src.includes('logo')) return false;
-                if (!src.startsWith('http')) return false;
-                return true;
-            })
-            .map(img => img.src);
-            
-        dados.fotos = [...new Set(fotosBoas)].slice(0, 15);
+        // 3. DADOS TÉCNICOS (Ícones)
+        // Quartos
+        const iconeDorms = document.querySelector('.icon-dorms');
+        if (iconeDorms && iconeDorms.parentElement) {
+            dados.quartos = iconeDorms.parentElement.innerText.replace(/\D/g, ''); 
+        } else {
+            const matchQ = text.match(/(\d)\s*dorm/i) || text.match(/(\d)\s*quartos/i);
+            dados.quartos = matchQ ? matchQ[1] : '2';
+        }
 
-        // 6. DIFERENCIAIS
-        const keywords = ['Piscina', 'Churrasqueira', 'Playground', 'Academia', 'Salão de Festas', 'Quadra', 'Pet Place'];
+        // Vagas
+        const iconeVaga = document.querySelector('.icon-parking');
+        if (iconeVaga && iconeVaga.parentElement) {
+            dados.vagas = iconeVaga.parentElement.innerText.replace(/\D/g, ''); 
+        } else {
+            dados.vagas = '1'; 
+        }
+
+        // Status
+        const etiquetaStatus = document.querySelector('.nav-item.bg-primary');
+        if (etiquetaStatus) {
+            const statusTxt = etiquetaStatus.innerText.toLowerCase();
+            if (statusTxt.includes('pronto')) dados.status = 'Pronto para Morar';
+            else if (statusTxt.includes('lançamento')) dados.status = 'Lançamento';
+            else dados.status = 'Em Obras';
+        } else {
+            dados.status = 'Em Obras';
+        }
+
+        // Área
+        dados.area = '0';
+        const matchArea = text.match(/(\d{2,3})\s*m²/);
+        if (matchArea) dados.area = matchArea[1];
+
+
+        // 4. FOTOS (Estratégia Fancybox + Backup)
+        const linksImagens = Array.from(document.querySelectorAll('a[href*=".jpg"], a[href*=".png"], a[href*=".webp"]'))
+            .map(a => a.href)
+            .filter(href => !href.includes('logo') && !href.includes('icon'));
+
+        const imgsSoltas = Array.from(document.querySelectorAll('img'))
+            .filter(img => img.naturalWidth > 300)
+            .map(img => img.src.replace(/-thumbnail/g, '').replace(/thumbnail/g, ''));
+
+        const todasFotos = [...linksImagens, ...imgsSoltas];
+        dados.fotos = [...new Set(todasFotos)].slice(0, 20);
+
+        // 5. DESCRIÇÃO E DIFERENCIAIS
+        const keywords = ['Piscina', 'Churrasqueira', 'Playground', 'Academia', 'Salão de Festas', 'Quadra', 'Pet Place', 'Bicicletário', 'Coworking'];
         dados.diferenciais = keywords.filter(k => text.toLowerCase().includes(k.toLowerCase()));
+        if (dados.vagas && dados.vagas !== '0') dados.diferenciais.push(`${dados.vagas} Vaga(s)`);
 
-        // 7. DESCRIÇÃO
-        // Pega o maior parágrafo que não seja termos de uso
         const ps = Array.from(document.querySelectorAll('p'));
-        const maiorP = ps.reduce((a, b) => a.innerText.length > b.innerText.length ? a : b, {innerText: ''});
-        dados.descricao = maiorP.innerText.length > 50 ? maiorP.innerText : `Conheça o ${dados.titulo} em ${dados.cidade}.`;
+        const psUteis = ps.filter(p => {
+            const t = p.innerText.toLowerCase();
+            return t.length > 30 && !t.includes('imagens meramente') && !t.includes('creci');
+        });
+        const maiorP = psUteis.reduce((a, b) => a.innerText.length > b.innerText.length ? a : b, {innerText: ''});
+        dados.descricao = maiorP.innerText.length > 30 ? maiorP.innerText : `Conheça o ${dados.titulo} em ${dados.cidade}.`;
 
         return dados;
       }, link);
 
-      console.log(`   ✅ ${dadosPage.titulo} | 📐 ${dadosPage.area}m² | 📸 ${dadosPage.fotos.length} fotos`);
+      console.log(`   ✅ ${dadosPage.titulo} | 📍 ${dadosPage.endereco} (${dadosPage.bairro})`);
       dadosDetalhados.push(dadosPage);
 
     } catch (erro) {
