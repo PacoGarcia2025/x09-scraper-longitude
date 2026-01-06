@@ -2,7 +2,7 @@ const puppeteer = require('puppeteer');
 const fs = require('fs');
 
 (async () => {
-  console.log('🚀 Iniciando Robô LONGITUDE - Versão WEBDOOR (Capa Oficial Garantida)...');
+  console.log('🚀 Iniciando Robô LONGITUDE - Versão STATUS CORRIGIDO...');
   
   const browser = await puppeteer.launch({ 
     headless: "new",
@@ -107,40 +107,48 @@ const fs = require('fs');
             dados.quartos = maxDorms.toString();
         }
 
-        // 4. VAGAS & STATUS
+        // 4. VAGAS (Extração Limpa)
         const iconeVaga = document.querySelector('.icon-parking');
         dados.vagas = (iconeVaga && iconeVaga.parentElement) ? iconeVaga.parentElement.innerText.replace(/\D/g, '') : '1';
         
+        // ==================================================================
+        // 5. STATUS (LÓGICA REFORÇADA COM SINÔNIMOS)
+        // ==================================================================
+        dados.status = 'Em Obras'; // Padrão seguro
+
+        let statusRaw = '';
         const etiquetaStatus = document.querySelector('.nav-item.bg-primary');
+        
         if (etiquetaStatus) {
-            const statusTxt = etiquetaStatus.innerText.toLowerCase();
-            if (statusTxt.includes('pronto')) dados.status = 'Pronto para Morar';
-            else if (statusTxt.includes('lançamento')) dados.status = 'Lançamento';
-            else dados.status = 'Em Obras';
-        } else { dados.status = 'Em Obras'; }
+            statusRaw = etiquetaStatus.innerText.toLowerCase();
+        } else {
+            // Plano B: Procura frases chaves no texto da página se não tiver etiqueta
+            if (text.toLowerCase().includes('pronto para morar')) statusRaw = 'pronto';
+            else if (text.toLowerCase().includes('breve lançamento')) statusRaw = 'lançamento';
+        }
+
+        // Dicionário de Decisão
+        if (statusRaw.includes('pronto') || statusRaw.includes('entregue') || statusRaw.includes('concluído') || statusRaw.includes('últimas unidades')) {
+            dados.status = 'Pronto para Morar';
+        } else if (statusRaw.includes('lançamento') || statusRaw.includes('breve')) {
+            dados.status = 'Lançamento';
+        } 
+        // ==================================================================
 
         dados.area = '0';
         const matchArea = text.match(/(\d{2,3})\s*m²/);
         if (matchArea) dados.area = matchArea[1];
 
-
-        // ==================================================================
-        // 7. FOTOS (PRIORIDADE: WEBDOOR -> CAPA DO SITE)
-        // ==================================================================
-        
+        // 7. FOTOS (WEBDOOR + CAPA HERO + GALERIA)
         let fotosFinais = [];
 
-        // A. CAPA WEBDOOR (O segredo que você achou!)
-        // Procura a div que tem class="enterprise-webdoor"
+        // A. Capa Webdoor
         const webdoorDiv = document.querySelector('.enterprise-webdoor');
         if (webdoorDiv) {
             const style = webdoorDiv.getAttribute('style');
             if (style) {
-                // Tenta extrair a URL de dentro do background-image: url('...');
                 const matchUrl = style.match(/url\(['"]?(.*?)['"]?\)/);
-                if (matchUrl && matchUrl[1]) {
-                    fotosFinais.push(matchUrl[1]);
-                }
+                if (matchUrl && matchUrl[1]) fotosFinais.push(matchUrl[1]);
             }
         }
 
@@ -148,34 +156,22 @@ const fs = require('fs');
         let galeriaLinks = Array.from(document.querySelectorAll('a'))
             .map(a => a.href)
             .filter(href => href.match(/\.(jpg|jpeg|png|webp)(\?.*)?$/i))
-            .filter(href => !href.includes('logo') && 
-                            !href.includes('icon') && 
-                            !href.includes('avatar') &&
-                            !href.includes('/assets/')); 
+            .filter(href => !href.includes('logo') && !href.includes('icon') && !href.includes('avatar') && !href.includes('/assets/')); 
 
         galeriaLinks = [...new Set(galeriaLinks)];
-        
-        // Remove a capa Webdoor da galeria para não duplicar
-        if (fotosFinais.length > 0) {
-            galeriaLinks = galeriaLinks.filter(f => f !== fotosFinais[0]);
-        }
+        if (fotosFinais.length > 0) galeriaLinks = galeriaLinks.filter(f => f !== fotosFinais[0]);
 
-        // C. INVERSÃO (Mantemos a inversão para jogar plantas pro final)
+        // C. Inversão (Plantas pro fim)
         galeriaLinks.reverse();
 
-        // Junta tudo (Capa Webdoor primeiro + Galeria Invertida)
         fotosFinais = [...fotosFinais, ...galeriaLinks];
-
-        // Backup final
         if (fotosFinais.length === 0) {
              const imgsSoltas = Array.from(document.querySelectorAll('img'))
-                .filter(img => img.naturalWidth > 400)
-                .map(img => img.src);
+                .filter(img => img.naturalWidth > 400).map(img => img.src);
              fotosFinais = [...imgsSoltas];
         }
 
         dados.fotos = fotosFinais.slice(0, 25);
-        // ==================================================================
 
         // 8. DESCRIÇÃO
         const keywords = ['Piscina', 'Churrasqueira', 'Playground', 'Academia', 'Salão de Festas', 'Quadra', 'Pet Place', 'Bicicletário', 'Coworking'];
@@ -193,7 +189,7 @@ const fs = require('fs');
         return dados;
       }, link);
 
-      console.log(`   ✅ ${dadosPage.titulo} | 📸 ${dadosPage.fotos.length} Fotos (Capa Webdoor!)`);
+      console.log(`   ✅ ${dadosPage.titulo} | 🏗️ ${dadosPage.status} | 📸 ${dadosPage.fotos.length} Fotos`);
       dadosDetalhados.push(dadosPage);
 
     } catch (erro) {
