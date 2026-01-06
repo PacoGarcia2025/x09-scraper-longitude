@@ -2,7 +2,7 @@ name: Atualizacao Longitude
 
 on:
   schedule:
-    - cron: '0 9 * * *' # Roda as 06:00 da manha
+    - cron: '0 9 * * *'
   workflow_dispatch:
 
 jobs:
@@ -16,9 +16,10 @@ jobs:
       with:
         node-version: '18'
     
-    # CORREÇÃO AQUI: Instala pacotes E baixa o Chrome
     - name: 📥 Instalar Dependencias e Navegador
       run: |
+        rm -rf node_modules
+        rm -f package-lock.json
         npm install
         npx puppeteer browsers install chrome
 
