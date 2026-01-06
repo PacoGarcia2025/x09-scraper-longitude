@@ -2,7 +2,7 @@ const puppeteer = require('puppeteer');
 const fs = require('fs');
 
 (async () => {
-  console.log('🚀 Iniciando Robô LONGITUDE - Versão CAPA DE REVISTA (Prioridade + Inversão)...');
+  console.log('🚀 Iniciando Robô LONGITUDE - Versão WEBDOOR (Capa Oficial Garantida)...');
   
   const browser = await puppeteer.launch({ 
     headless: "new",
@@ -74,7 +74,7 @@ const fs = require('fs');
         dados.estado = 'SP';
         dados.tipo = 'Apartamento';
 
-        // 2. ENDEREÇO (Lógica do "AQUI")
+        // 2. ENDEREÇO
         dados.endereco = 'A Consultar';
         dados.bairro = 'A Consultar';
         const strongs = Array.from(document.querySelectorAll('strong'));
@@ -91,7 +91,7 @@ const fs = require('fs');
             }
         }
 
-        // 3. QUARTOS (Correção "12")
+        // 3. QUARTOS (Separa números e pega o maior)
         dados.quartos = '2'; 
         let textoDorms = '';
         const iconeDorms = document.querySelector('.icon-dorms');
@@ -123,51 +123,57 @@ const fs = require('fs');
         const matchArea = text.match(/(\d{2,3})\s*m²/);
         if (matchArea) dados.area = matchArea[1];
 
+
         // ==================================================================
-        // 7. FOTOS (PROTOCOLO CAPA DE REVISTA) - AQUI ESTÁ A MUDANÇA
+        // 7. FOTOS (PRIORIDADE: WEBDOOR -> CAPA DO SITE)
         // ==================================================================
         
-        // A. Tenta achar a Capa Oficial de Marketing (og:image)
-        let capaHero = null;
-        const metaImg = document.querySelector('meta[property="og:image"]');
-        if (metaImg && metaImg.content && metaImg.content.startsWith('http')) {
-            capaHero = metaImg.content;
-        }
-
-        // B. Coleta a galeria de alta resolução (links diretos)
-        // Pega todos os links que terminam em imagem e não são logos
-        let galeriaLinks = Array.from(document.querySelectorAll('a'))
-            .map(a => a.href)
-            .filter(href => href.match(/\.(jpg|jpeg|png|webp)(\?.*)?$/i))
-            .filter(href => !href.includes('logo') && !href.includes('icon') && !href.includes('avatar'));
-
-        // Remove duplicatas iniciais
-        galeriaLinks = [...new Set(galeriaLinks)];
-
-        // C. Montagem da Lista Final
         let fotosFinais = [];
 
-        // Se achou a capa Hero, ela é a primeira, SEM DISCUSSÃO.
-        if (capaHero) {
-            fotosFinais.push(capaHero);
-            // Remove ela da galeria para não duplicar
-            galeriaLinks = galeriaLinks.filter(f => f !== capaHero);
-        }
-
-        // Adiciona o resto da galeria
-        fotosFinais = [...fotosFinais, ...galeriaLinks];
-
-        // D. INVERSÃO DE EMERGÊNCIA (O pedido do usuário)
-        // Se a primeira foto da lista (que vai pro card) tiver nome de planta, INVERTE TUDO.
-        if (fotosFinais.length > 0) {
-            const primeiraFoto = fotosFinais[0].toLowerCase();
-            if (primeiraFoto.includes('planta') || primeiraFoto.includes('implantacao')) {
-                // Inverte a lista para jogar as plantas para o final e as fachadas para o início
-                fotosFinais.reverse();
+        // A. CAPA WEBDOOR (O segredo que você achou!)
+        // Procura a div que tem class="enterprise-webdoor"
+        const webdoorDiv = document.querySelector('.enterprise-webdoor');
+        if (webdoorDiv) {
+            const style = webdoorDiv.getAttribute('style');
+            if (style) {
+                // Tenta extrair a URL de dentro do background-image: url('...');
+                const matchUrl = style.match(/url\(['"]?(.*?)['"]?\)/);
+                if (matchUrl && matchUrl[1]) {
+                    fotosFinais.push(matchUrl[1]);
+                }
             }
         }
 
-        // Limita a 25 fotos
+        // B. Galeria Normal
+        let galeriaLinks = Array.from(document.querySelectorAll('a'))
+            .map(a => a.href)
+            .filter(href => href.match(/\.(jpg|jpeg|png|webp)(\?.*)?$/i))
+            .filter(href => !href.includes('logo') && 
+                            !href.includes('icon') && 
+                            !href.includes('avatar') &&
+                            !href.includes('/assets/')); 
+
+        galeriaLinks = [...new Set(galeriaLinks)];
+        
+        // Remove a capa Webdoor da galeria para não duplicar
+        if (fotosFinais.length > 0) {
+            galeriaLinks = galeriaLinks.filter(f => f !== fotosFinais[0]);
+        }
+
+        // C. INVERSÃO (Mantemos a inversão para jogar plantas pro final)
+        galeriaLinks.reverse();
+
+        // Junta tudo (Capa Webdoor primeiro + Galeria Invertida)
+        fotosFinais = [...fotosFinais, ...galeriaLinks];
+
+        // Backup final
+        if (fotosFinais.length === 0) {
+             const imgsSoltas = Array.from(document.querySelectorAll('img'))
+                .filter(img => img.naturalWidth > 400)
+                .map(img => img.src);
+             fotosFinais = [...imgsSoltas];
+        }
+
         dados.fotos = fotosFinais.slice(0, 25);
         // ==================================================================
 
@@ -187,7 +193,7 @@ const fs = require('fs');
         return dados;
       }, link);
 
-      console.log(`   ✅ ${dadosPage.titulo} | 📸 ${dadosPage.fotos.length} Fotos (Capa Ajustada)`);
+      console.log(`   ✅ ${dadosPage.titulo} | 📸 ${dadosPage.fotos.length} Fotos (Capa Webdoor!)`);
       dadosDetalhados.push(dadosPage);
 
     } catch (erro) {
