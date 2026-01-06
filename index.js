@@ -2,7 +2,7 @@ const puppeteer = require('puppeteer');
 const fs = require('fs');
 
 (async () => {
-  console.log('🚀 Iniciando Robô LONGITUDE - Versão BLINDADA (Capa Oficial + Links Reais)...');
+  console.log('🚀 Iniciando Robô LONGITUDE - Versão CAPA DE REVISTA (Prioridade + Inversão)...');
   
   const browser = await puppeteer.launch({ 
     headless: "new",
@@ -56,7 +56,7 @@ const fs = require('fs');
     
     try {
       await page.goto(link, { waitUntil: 'domcontentloaded', timeout: 60000 });
-      await page.evaluate(() => window.scrollBy(0, 500)); // Rola para carregar Fancybox
+      await page.evaluate(() => window.scrollBy(0, 500)); 
       await new Promise(r => setTimeout(r, 1500));
 
       // --- EXTRAÇÃO ---
@@ -68,7 +68,6 @@ const fs = require('fs');
         const parts = urlAtual.split('/');
         const slugNome = parts[parts.length - 1] || parts[parts.length - 2];
         const slugCidade = parts[parts.length - 3] || 'SP';
-        
         dados.id = 'LONG-' + slugNome.replace(/[^a-z0-9]/g, '').slice(-25).toUpperCase();
         dados.titulo = slugNome.replace(/-/g, ' ').toUpperCase();
         dados.cidade = slugCidade.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
@@ -80,7 +79,6 @@ const fs = require('fs');
         dados.bairro = 'A Consultar';
         const strongs = Array.from(document.querySelectorAll('strong'));
         const labelAqui = strongs.find(el => el.innerText.trim().toUpperCase() === 'AQUI');
-
         if (labelAqui && labelAqui.nextElementSibling) {
             const spanEnd = labelAqui.nextElementSibling;
             const textoEnd = spanEnd.innerText.trim();
@@ -93,80 +91,85 @@ const fs = require('fs');
             }
         }
 
-        // 3. QUARTOS (CORREÇÃO DO "12")
+        // 3. QUARTOS (Correção "12")
         dados.quartos = '2'; 
         let textoDorms = '';
         const iconeDorms = document.querySelector('.icon-dorms');
-        
         if (iconeDorms && iconeDorms.parentElement) {
             textoDorms = iconeDorms.parentElement.innerText;
         } else {
             const matchQ = text.match(/(\d[\d\s,e]*)\s*dorm/i) || text.match(/(\d[\d\s,e]*)\s*quartos/i);
             if (matchQ) textoDorms = matchQ[1];
         }
-
-        // Pega todos os números separados (Ex: "1 e 2" vira ["1", "2"])
         const numerosEncontrados = textoDorms.match(/\d+/g);
         if (numerosEncontrados && numerosEncontrados.length > 0) {
-            // Pega o maior número encontrado (valoriza o imóvel)
             const maxDorms = Math.max(...numerosEncontrados.map(n => parseInt(n)));
             dados.quartos = maxDorms.toString();
         }
 
-        // 4. VAGAS
+        // 4. VAGAS & STATUS
         const iconeVaga = document.querySelector('.icon-parking');
-        if (iconeVaga && iconeVaga.parentElement) {
-            dados.vagas = iconeVaga.parentElement.innerText.replace(/\D/g, ''); 
-        } else {
-            dados.vagas = '1'; 
-        }
-
-        // 5. STATUS
+        dados.vagas = (iconeVaga && iconeVaga.parentElement) ? iconeVaga.parentElement.innerText.replace(/\D/g, '') : '1';
+        
         const etiquetaStatus = document.querySelector('.nav-item.bg-primary');
         if (etiquetaStatus) {
             const statusTxt = etiquetaStatus.innerText.toLowerCase();
             if (statusTxt.includes('pronto')) dados.status = 'Pronto para Morar';
             else if (statusTxt.includes('lançamento')) dados.status = 'Lançamento';
             else dados.status = 'Em Obras';
-        } else {
-            dados.status = 'Em Obras';
-        }
+        } else { dados.status = 'Em Obras'; }
 
-        // 6. ÁREA
         dados.area = '0';
         const matchArea = text.match(/(\d{2,3})\s*m²/);
         if (matchArea) dados.area = matchArea[1];
 
-
-        // 7. FOTOS (CORREÇÃO DA CAPA E LINKS QUEBRADOS)
-        let fotosFinais = [];
-
-        // A. CAPA OFICIAL (A que vai pro Facebook/Google - Melhor qualidade)
+        // ==================================================================
+        // 7. FOTOS (PROTOCOLO CAPA DE REVISTA) - AQUI ESTÁ A MUDANÇA
+        // ==================================================================
+        
+        // A. Tenta achar a Capa Oficial de Marketing (og:image)
+        let capaHero = null;
         const metaImg = document.querySelector('meta[property="og:image"]');
         if (metaImg && metaImg.content && metaImg.content.startsWith('http')) {
-            fotosFinais.push(metaImg.content);
+            capaHero = metaImg.content;
         }
 
-        // B. GALERIA REAL (Links do Fancybox - Garantido que existem)
-        // Pegamos apenas links que terminam em imagem
-        const linksGaleria = Array.from(document.querySelectorAll('a'))
+        // B. Coleta a galeria de alta resolução (links diretos)
+        // Pega todos os links que terminam em imagem e não são logos
+        let galeriaLinks = Array.from(document.querySelectorAll('a'))
             .map(a => a.href)
-            .filter(href => href.match(/\.(jpg|jpeg|png|webp)$/i))
-            .filter(href => !href.includes('logo') && !href.includes('icon'));
+            .filter(href => href.match(/\.(jpg|jpeg|png|webp)(\?.*)?$/i))
+            .filter(href => !href.includes('logo') && !href.includes('icon') && !href.includes('avatar'));
 
-        fotosFinais = [...fotosFinais, ...linksGaleria];
+        // Remove duplicatas iniciais
+        galeriaLinks = [...new Set(galeriaLinks)];
 
-        // C. BACKUP (Se não achou nada, pega img tags grandes, sem tentar adivinhar link)
-        if (fotosFinais.length < 2) {
-            const imgsSoltas = Array.from(document.querySelectorAll('img'))
-                .filter(img => img.naturalWidth > 400)
-                .map(img => img.src);
-            fotosFinais = [...fotosFinais, ...imgsSoltas];
+        // C. Montagem da Lista Final
+        let fotosFinais = [];
+
+        // Se achou a capa Hero, ela é a primeira, SEM DISCUSSÃO.
+        if (capaHero) {
+            fotosFinais.push(capaHero);
+            // Remove ela da galeria para não duplicar
+            galeriaLinks = galeriaLinks.filter(f => f !== capaHero);
         }
 
-        // Limpeza: Remove duplicadas e garante ordem
-        dados.fotos = [...new Set(fotosFinais)].slice(0, 20);
+        // Adiciona o resto da galeria
+        fotosFinais = [...fotosFinais, ...galeriaLinks];
 
+        // D. INVERSÃO DE EMERGÊNCIA (O pedido do usuário)
+        // Se a primeira foto da lista (que vai pro card) tiver nome de planta, INVERTE TUDO.
+        if (fotosFinais.length > 0) {
+            const primeiraFoto = fotosFinais[0].toLowerCase();
+            if (primeiraFoto.includes('planta') || primeiraFoto.includes('implantacao')) {
+                // Inverte a lista para jogar as plantas para o final e as fachadas para o início
+                fotosFinais.reverse();
+            }
+        }
+
+        // Limita a 25 fotos
+        dados.fotos = fotosFinais.slice(0, 25);
+        // ==================================================================
 
         // 8. DESCRIÇÃO
         const keywords = ['Piscina', 'Churrasqueira', 'Playground', 'Academia', 'Salão de Festas', 'Quadra', 'Pet Place', 'Bicicletário', 'Coworking'];
@@ -184,7 +187,7 @@ const fs = require('fs');
         return dados;
       }, link);
 
-      console.log(`   ✅ ${dadosPage.titulo} | 🛏️ ${dadosPage.quartos} Dorms | 🖼️ Capa OK`);
+      console.log(`   ✅ ${dadosPage.titulo} | 📸 ${dadosPage.fotos.length} Fotos (Capa Ajustada)`);
       dadosDetalhados.push(dadosPage);
 
     } catch (erro) {
