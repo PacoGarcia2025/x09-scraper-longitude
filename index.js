@@ -2,7 +2,7 @@ const puppeteer = require('puppeteer');
 const fs = require('fs');
 
 (async () => {
-  console.log('🚀 Iniciando Robô LONGITUDE - Versão X09 (Capa Oficial + Correção Dorms)...');
+  console.log('🚀 Iniciando Robô LONGITUDE - Versão BLINDADA (Capa Oficial + Links Reais)...');
   
   const browser = await puppeteer.launch({ 
     headless: "new",
@@ -56,7 +56,7 @@ const fs = require('fs');
     
     try {
       await page.goto(link, { waitUntil: 'domcontentloaded', timeout: 60000 });
-      await page.evaluate(() => window.scrollBy(0, 500));
+      await page.evaluate(() => window.scrollBy(0, 500)); // Rola para carregar Fancybox
       await new Promise(r => setTimeout(r, 1500));
 
       // --- EXTRAÇÃO ---
@@ -93,27 +93,24 @@ const fs = require('fs');
             }
         }
 
-        // 3. QUARTOS (CORREÇÃO DO BUG "12")
-        // Estratégia: Pegar números separados e usar o primeiro válido
-        dados.quartos = '2'; // Padrão
-        
+        // 3. QUARTOS (CORREÇÃO DO "12")
+        dados.quartos = '2'; 
+        let textoDorms = '';
         const iconeDorms = document.querySelector('.icon-dorms');
-        let textoDormsBruto = '';
         
         if (iconeDorms && iconeDorms.parentElement) {
-            textoDormsBruto = iconeDorms.parentElement.innerText;
+            textoDorms = iconeDorms.parentElement.innerText;
         } else {
             const matchQ = text.match(/(\d[\d\s,e]*)\s*dorm/i) || text.match(/(\d[\d\s,e]*)\s*quartos/i);
-            if (matchQ) textoDormsBruto = matchQ[1];
+            if (matchQ) textoDorms = matchQ[1];
         }
 
-        // Pega todos os números dentro da string (ex: "1 e 2" vira ["1", "2"])
-        const numerosEncontrados = textoDormsBruto.match(/\d+/g);
+        // Pega todos os números separados (Ex: "1 e 2" vira ["1", "2"])
+        const numerosEncontrados = textoDorms.match(/\d+/g);
         if (numerosEncontrados && numerosEncontrados.length > 0) {
-            // Se tiver mais de um número (ex: 1 e 2), pega o maior para valorizar o imóvel
-            // Ou pega o último da lista.
-            const ultimoNumero = numerosEncontrados[numerosEncontrados.length - 1];
-            dados.quartos = ultimoNumero; 
+            // Pega o maior número encontrado (valoriza o imóvel)
+            const maxDorms = Math.max(...numerosEncontrados.map(n => parseInt(n)));
+            dados.quartos = maxDorms.toString();
         }
 
         // 4. VAGAS
@@ -141,40 +138,37 @@ const fs = require('fs');
         if (matchArea) dados.area = matchArea[1];
 
 
-        // 7. FOTOS (CORREÇÃO DA CAPA)
-        
-        // A. Pega a CAPA OFICIAL (og:image) - Essa é a fachada bonita
-        let capaOficial = null;
+        // 7. FOTOS (CORREÇÃO DA CAPA E LINKS QUEBRADOS)
+        let fotosFinais = [];
+
+        // A. CAPA OFICIAL (A que vai pro Facebook/Google - Melhor qualidade)
         const metaImg = document.querySelector('meta[property="og:image"]');
-        if (metaImg) {
-            capaOficial = metaImg.content;
+        if (metaImg && metaImg.content && metaImg.content.startsWith('http')) {
+            fotosFinais.push(metaImg.content);
         }
 
-        // B. Pega as fotos da galeria (Fancybox)
-        const linksImagens = Array.from(document.querySelectorAll('a[href*=".jpg"], a[href*=".png"], a[href*=".webp"]'))
+        // B. GALERIA REAL (Links do Fancybox - Garantido que existem)
+        // Pegamos apenas links que terminam em imagem
+        const linksGaleria = Array.from(document.querySelectorAll('a'))
             .map(a => a.href)
+            .filter(href => href.match(/\.(jpg|jpeg|png|webp)$/i))
             .filter(href => !href.includes('logo') && !href.includes('icon'));
 
-        // C. Pega imagens soltas (Backup)
-        const imgsSoltas = Array.from(document.querySelectorAll('img'))
-            .filter(img => img.naturalWidth > 300)
-            .map(img => img.src.replace(/-thumbnail/g, '').replace(/thumbnail/g, ''));
+        fotosFinais = [...fotosFinais, ...linksGaleria];
 
-        // Junta tudo
-        let todasFotos = [...linksImagens, ...imgsSoltas];
-        todasFotos = [...new Set(todasFotos)]; // Remove duplicadas
-
-        // TRUQUE DE MESTRE: Coloca a capa oficial na posição 0
-        if (capaOficial) {
-            // Remove a capa se ela já estiver na lista para não duplicar
-            todasFotos = todasFotos.filter(f => f !== capaOficial);
-            // Adiciona ela no INÍCIO
-            todasFotos.unshift(capaOficial);
+        // C. BACKUP (Se não achou nada, pega img tags grandes, sem tentar adivinhar link)
+        if (fotosFinais.length < 2) {
+            const imgsSoltas = Array.from(document.querySelectorAll('img'))
+                .filter(img => img.naturalWidth > 400)
+                .map(img => img.src);
+            fotosFinais = [...fotosFinais, ...imgsSoltas];
         }
 
-        dados.fotos = todasFotos.slice(0, 20);
+        // Limpeza: Remove duplicadas e garante ordem
+        dados.fotos = [...new Set(fotosFinais)].slice(0, 20);
 
-        // 8. DESCRIÇÃO E DIFERENCIAIS
+
+        // 8. DESCRIÇÃO
         const keywords = ['Piscina', 'Churrasqueira', 'Playground', 'Academia', 'Salão de Festas', 'Quadra', 'Pet Place', 'Bicicletário', 'Coworking'];
         dados.diferenciais = keywords.filter(k => text.toLowerCase().includes(k.toLowerCase()));
         if (dados.vagas && dados.vagas !== '0') dados.diferenciais.push(`${dados.vagas} Vaga(s)`);
@@ -190,7 +184,7 @@ const fs = require('fs');
         return dados;
       }, link);
 
-      console.log(`   ✅ ${dadosPage.titulo} | 🛏️ ${dadosPage.quartos} Dorms | 📍 ${dadosPage.bairro}`);
+      console.log(`   ✅ ${dadosPage.titulo} | 🛏️ ${dadosPage.quartos} Dorms | 🖼️ Capa OK`);
       dadosDetalhados.push(dadosPage);
 
     } catch (erro) {
