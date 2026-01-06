@@ -175,4 +175,4 @@ const fs = require('fs');
   fs.writeFileSync('longitude_imoveis.json', JSON.stringify(dadosDetalhados, null, 2));
   console.log(`\n💾 SUCESSO!`);
   await browser.close();
-})();
+})(); 
