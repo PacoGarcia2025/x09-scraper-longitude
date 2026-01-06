@@ -2,7 +2,7 @@ const puppeteer = require('puppeteer');
 const fs = require('fs');
 
 (async () => {
-  console.log('🚀 Iniciando Robô LONGITUDE - Versão FINAL (HD + CSS + Endereço)...');
+  console.log('🚀 Iniciando Robô LONGITUDE - Versão X09 (Capa Oficial + Correção Dorms)...');
   
   const browser = await puppeteer.launch({ 
     headless: "new",
@@ -75,43 +75,48 @@ const fs = require('fs');
         dados.estado = 'SP';
         dados.tipo = 'Apartamento';
 
-        // 2. ENDEREÇO (AQUI ENTRA A SUA DESCOBERTA!)
+        // 2. ENDEREÇO (Lógica do "AQUI")
         dados.endereco = 'A Consultar';
         dados.bairro = 'A Consultar';
-
-        // Procura a tag <strong> com texto "Aqui"
         const strongs = Array.from(document.querySelectorAll('strong'));
         const labelAqui = strongs.find(el => el.innerText.trim().toUpperCase() === 'AQUI');
 
         if (labelAqui && labelAqui.nextElementSibling) {
-            // O endereço está no span logo depois do "Aqui"
             const spanEnd = labelAqui.nextElementSibling;
             const textoEnd = spanEnd.innerText.trim();
-            
-            // Geralmente vem assim: "Rua X, 123 \n Bairro Y, Cidade/UF"
             const linhas = textoEnd.split(/\n/);
-            
-            if (linhas.length > 0) dados.endereco = linhas[0].trim(); // Pega a Rua
-            
+            if (linhas.length > 0) dados.endereco = linhas[0].trim(); 
             if (linhas.length > 1) {
-                // Tenta extrair o bairro da segunda linha
                 const resto = linhas[1].trim(); 
                 const partesResto = resto.split(',');
                 if (partesResto.length > 0) dados.bairro = partesResto[0].trim();
             }
         }
 
-        // 3. DADOS TÉCNICOS (Ícones)
-        // Quartos
+        // 3. QUARTOS (CORREÇÃO DO BUG "12")
+        // Estratégia: Pegar números separados e usar o primeiro válido
+        dados.quartos = '2'; // Padrão
+        
         const iconeDorms = document.querySelector('.icon-dorms');
+        let textoDormsBruto = '';
+        
         if (iconeDorms && iconeDorms.parentElement) {
-            dados.quartos = iconeDorms.parentElement.innerText.replace(/\D/g, ''); 
+            textoDormsBruto = iconeDorms.parentElement.innerText;
         } else {
-            const matchQ = text.match(/(\d)\s*dorm/i) || text.match(/(\d)\s*quartos/i);
-            dados.quartos = matchQ ? matchQ[1] : '2';
+            const matchQ = text.match(/(\d[\d\s,e]*)\s*dorm/i) || text.match(/(\d[\d\s,e]*)\s*quartos/i);
+            if (matchQ) textoDormsBruto = matchQ[1];
         }
 
-        // Vagas
+        // Pega todos os números dentro da string (ex: "1 e 2" vira ["1", "2"])
+        const numerosEncontrados = textoDormsBruto.match(/\d+/g);
+        if (numerosEncontrados && numerosEncontrados.length > 0) {
+            // Se tiver mais de um número (ex: 1 e 2), pega o maior para valorizar o imóvel
+            // Ou pega o último da lista.
+            const ultimoNumero = numerosEncontrados[numerosEncontrados.length - 1];
+            dados.quartos = ultimoNumero; 
+        }
+
+        // 4. VAGAS
         const iconeVaga = document.querySelector('.icon-parking');
         if (iconeVaga && iconeVaga.parentElement) {
             dados.vagas = iconeVaga.parentElement.innerText.replace(/\D/g, ''); 
@@ -119,7 +124,7 @@ const fs = require('fs');
             dados.vagas = '1'; 
         }
 
-        // Status
+        // 5. STATUS
         const etiquetaStatus = document.querySelector('.nav-item.bg-primary');
         if (etiquetaStatus) {
             const statusTxt = etiquetaStatus.innerText.toLowerCase();
@@ -130,25 +135,46 @@ const fs = require('fs');
             dados.status = 'Em Obras';
         }
 
-        // Área
+        // 6. ÁREA
         dados.area = '0';
         const matchArea = text.match(/(\d{2,3})\s*m²/);
         if (matchArea) dados.area = matchArea[1];
 
 
-        // 4. FOTOS (Estratégia Fancybox + Backup)
+        // 7. FOTOS (CORREÇÃO DA CAPA)
+        
+        // A. Pega a CAPA OFICIAL (og:image) - Essa é a fachada bonita
+        let capaOficial = null;
+        const metaImg = document.querySelector('meta[property="og:image"]');
+        if (metaImg) {
+            capaOficial = metaImg.content;
+        }
+
+        // B. Pega as fotos da galeria (Fancybox)
         const linksImagens = Array.from(document.querySelectorAll('a[href*=".jpg"], a[href*=".png"], a[href*=".webp"]'))
             .map(a => a.href)
             .filter(href => !href.includes('logo') && !href.includes('icon'));
 
+        // C. Pega imagens soltas (Backup)
         const imgsSoltas = Array.from(document.querySelectorAll('img'))
             .filter(img => img.naturalWidth > 300)
             .map(img => img.src.replace(/-thumbnail/g, '').replace(/thumbnail/g, ''));
 
-        const todasFotos = [...linksImagens, ...imgsSoltas];
-        dados.fotos = [...new Set(todasFotos)].slice(0, 20);
+        // Junta tudo
+        let todasFotos = [...linksImagens, ...imgsSoltas];
+        todasFotos = [...new Set(todasFotos)]; // Remove duplicadas
 
-        // 5. DESCRIÇÃO E DIFERENCIAIS
+        // TRUQUE DE MESTRE: Coloca a capa oficial na posição 0
+        if (capaOficial) {
+            // Remove a capa se ela já estiver na lista para não duplicar
+            todasFotos = todasFotos.filter(f => f !== capaOficial);
+            // Adiciona ela no INÍCIO
+            todasFotos.unshift(capaOficial);
+        }
+
+        dados.fotos = todasFotos.slice(0, 20);
+
+        // 8. DESCRIÇÃO E DIFERENCIAIS
         const keywords = ['Piscina', 'Churrasqueira', 'Playground', 'Academia', 'Salão de Festas', 'Quadra', 'Pet Place', 'Bicicletário', 'Coworking'];
         dados.diferenciais = keywords.filter(k => text.toLowerCase().includes(k.toLowerCase()));
         if (dados.vagas && dados.vagas !== '0') dados.diferenciais.push(`${dados.vagas} Vaga(s)`);
@@ -164,7 +190,7 @@ const fs = require('fs');
         return dados;
       }, link);
 
-      console.log(`   ✅ ${dadosPage.titulo} | 📍 ${dadosPage.endereco} (${dadosPage.bairro})`);
+      console.log(`   ✅ ${dadosPage.titulo} | 🛏️ ${dadosPage.quartos} Dorms | 📍 ${dadosPage.bairro}`);
       dadosDetalhados.push(dadosPage);
 
     } catch (erro) {
@@ -175,4 +201,4 @@ const fs = require('fs');
   fs.writeFileSync('longitude_imoveis.json', JSON.stringify(dadosDetalhados, null, 2));
   console.log(`\n💾 SUCESSO!`);
   await browser.close();
-})(); 
+})();
