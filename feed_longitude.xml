@@ -1729,4 +1729,34 @@
       </tipologia>
     </tipologias>
   </listing>
+  <listing>
+    <id>LONG-LONGITUDEESTACAOFREGUESIA</id>
+    <titulo>LONGITUDE ESTACAO FREGUESIA</titulo>
+    <tipo>Apartamento</tipo>
+    <preco>0</preco>
+    <cidade>Sao Paulo</cidade>
+    <estado>SP</estado>
+    <bairro>Freguesia do Ó</bairro>
+    <endereco>Rua Professor João Machado 269</endereco>
+    <status>Lançamento</status>
+    <url>https://www.longitude.com.br/imoveis/sao-paulo/apartamento/longitude-estacao-freguesia</url>
+    <descricao>Na Rua Professor João Machado, 269, o Longitude Estação Freguesia coloca você no centro da Zona Norte, a poucos minutos da Av. Edgar Facó, do Tietê Plaza Shopping e das Estações Piqueri, Pirituba e da futura Freguesia do Ó. Diferenciais: Academia, Coworking.</descricao>
+    <features>Academia,Coworking</features>
+    <fotos>
+      <foto>https://cdn.longitude.com.br/2026/02/13/11/57/875f28b3f13099b4775ff50a3e2c4571c710b9be.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/02/13/15/06/a0823b7a7374f92e874416babec97e86422286d2.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/02/13/15/06/676df0560b3955202f29acc26f99bed1895d141d.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/02/13/11/58/527ef03a97b2a9510e6b555890f61b8f5ea52e1f.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/02/13/11/58/9b1054e567bb16dd3bcd2ddfd0205618de3c6d01.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/02/13/11/58/1b9a319c386abb44ded8b5db32050d6932d03134.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/02/13/11/58/e08029ae5a870d91b2550ba09e5da044ce69e750.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/02/13/11/58/affb656a84b838bf95e839893ca1f1a6bd9d31bd.webp</foto>
+    </fotos>
+    <tipologias>
+      <tipologia>
+        <dormitorios>1</dormitorios>
+        <area>0</area>
+      </tipologia>
+    </tipologias>
+  </listing>
 </listings>
