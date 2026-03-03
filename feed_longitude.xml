@@ -1759,4 +1759,51 @@
       </tipologia>
     </tipologias>
   </listing>
+  <listing>
+    <id>LONG-LIVREALTODABOAVISTA</id>
+    <titulo>LIVRE ALTO DA BOA VISTA</titulo>
+    <tipo>Apartamento</tipo>
+    <preco>0</preco>
+    <cidade>Sao Paulo</cidade>
+    <estado>SP</estado>
+    <bairro>Santo Amaro</bairro>
+    <endereco>Avenida Santo Amaro, 6353</endereco>
+    <status>Lançamento</status>
+    <url>https://www.longitude.com.br/imoveis/sao-paulo/apartamento/livre-alto-da-boa-vista</url>
+    <descricao>E quando o assunto é localização, o Livre está em um ponto privilegiado: Avenida Santo Amaro, 6.353  Alto da Boa Vista, pertinho das estações Alto da Boa Vista (1 min de bike), Borba Gato (5 min de bike) e Brooklin (10 min de bike). Diferenciais: Piscina, Churrasqueira, Academia, Salão de Festas, Pet Place, Coworking.</descricao>
+    <features>Piscina,Churrasqueira,Academia,Salão de Festas,Pet Place,Coworking</features>
+    <fotos>
+      <foto>https://cdn.longitude.com.br/2026/03/02/15/23/d75a6d727ddcbb19b6294d00049a098871cc9a47.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/02/27/16/39/8d70cb72f08d61cce66a6b0622ecddf24b10f80a.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/02/27/16/39/ebb5ac5601b62f243c9248de91abf1e5f9314d2a.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/02/27/16/39/ff467f966b7a0b61ca6cddba52dca3994170b89e.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/02/27/16/39/e8f2fd7a8d4e6af12f343113bab49d067c89f28e.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/02/27/16/39/8db8cf61ee066d2640151da8315513ba864b6433.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/02/27/16/39/7a5be2b821c07f558c8c8a68ce96a6dfc6ea8e91.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/02/27/16/39/af246ce0b99624d00beeef9133d9cffaf7fe5b52.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/02/27/16/39/c6ecd54ef6cb428755e16ae9b684758a96836b0f.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/02/27/16/39/fa270db2c3681de3060a03a6eb86dc0cb6581b1e.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/02/27/16/39/2f7e30d18685719feeadb884c2c3032380317bee.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/02/27/16/39/29a02698ae96a2f24995368d8d47759d7565d67f.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/02/27/16/39/1ca55ecfce0fdc90d484ada56fb64e6d7187064e.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/02/27/16/39/247e052a521e91ae777267de4a4dba005c5b6060.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/02/27/16/39/247cb46548f8cd35ebcc4c2f7ec00c3a96ad4f0b.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/02/27/16/39/7e509efe70672a21b0ba55067f2b64393cd21ff9.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/02/27/16/39/f58eff15f05b46069b23654198d4fe0b1febb003.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/02/27/16/39/7227608075572ba5f97819d1fa2d9b5236fbf0cf.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/02/27/16/39/f3007448744861183104f6485dd58320301c0ae8.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/03/02/15/24/bfcbf83fbc900b739d0bedfabb9df97f17d60fbe.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/03/02/15/24/63ce06ecf32e9927f5ef4c2030e6382db261533a.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/03/02/15/24/09bc7f033d22ecdf5b76457ccb6c3253c2fdb69c.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/03/02/15/24/3cc358e3eb5b9781efd0415ebbf03e3329d70c8c.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/03/02/15/24/33f9437420ffa9dfd22285432571a5b058a2fd62.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/03/02/15/24/9557921f7c62ccc00141c39589e9358b9930120e.webp</foto>
+    </fotos>
+    <tipologias>
+      <tipologia>
+        <dormitorios>1</dormitorios>
+        <area>0</area>
+      </tipologia>
+    </tipologias>
+  </listing>
 </listings>
