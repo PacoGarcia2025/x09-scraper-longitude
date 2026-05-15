@@ -1776,4 +1776,60 @@
       </tipologia>
     </tipologias>
   </listing>
+  <listing>
+    <id>LONG-VERTICERESIDENCIAL</id>
+    <titulo>VERTICE RESIDENCIAL</titulo>
+    <tipo>Apartamento</tipo>
+    <preco>0</preco>
+    <cidade>Monte Mor</cidade>
+    <estado>SP</estado>
+    <bairro>Rezende</bairro>
+    <endereco>Av. Lázaro Maciel do Carmo, s/n</endereco>
+    <status>Lançamento</status>
+    <url>https://www.longitude.com.br/imoveis/monte-mor/apartamento/vertice-residencial</url>
+    <descricao>Localizado na Avenida Lázaro Maciel do Carmo, no bairro Rezende, o Vértice está inserido em uma região com fácil acesso, próxima a comércios e serviços essenciais, oferecendo mobilidade e comodidade para quem busca qualidade de vida sem abrir mão da praticidade. Diferenciais: Piscina, Playground, Quadra.</descricao>
+    <features>Piscina,Playground,Quadra</features>
+    <fotos>
+      <foto>https://cdn.longitude.com.br/2026/05/06/15/17/1d9f2cde5714c53a59fd26cc5a4820e452c64df2.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/05/14/16/30/12a7670cb0100550b7b53feada948e17e11d9d88.webp</foto>
+    </fotos>
+    <tipologias>
+      <tipologia>
+        <dormitorios>2</dormitorios>
+        <area>0</area>
+      </tipologia>
+    </tipologias>
+  </listing>
+  <listing>
+    <id>LONG-ONGITUDEESTACAOGUAIANASES</id>
+    <titulo>LONGITUDE ESTACAO GUAIANASES</titulo>
+    <tipo>Apartamento</tipo>
+    <preco>0</preco>
+    <cidade>Sao Paulo</cidade>
+    <estado>SP</estado>
+    <bairro>Guaianases</bairro>
+    <endereco>Estrada Nossa Senhora da Fonte, 598</endereco>
+    <status>Lançamento</status>
+    <url>https://www.longitude.com.br/imoveis/sao-paulo/apartamento/longitude-estacao-guaianases</url>
+    <descricao>Com torre única e 504 unidades, o empreendimento traz uma implantação moderna e funcional, com áreas de lazer completas que facilitam o dia a dia e ampliam as experiências sem sair de casa. Entre os destaques estão academia, coworking, lavanderia OMO, salão de festas, brinquedoteca, pet place, pista de caminhada e muito mais. Diferenciais: Academia, Salão de Festas, Pet Place, Coworking.</descricao>
+    <features>Academia,Salão de Festas,Pet Place,Coworking</features>
+    <fotos>
+      <foto>https://cdn.longitude.com.br/2026/05/14/17/34/b27761fa82da11e81ed8293ff9cd0ca7f7280b08.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/05/14/14/33/9abacf0a00a90c86ee9868077a644bef15581a5f.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/05/14/14/33/13b03df038ecb6414d0340a4cb826b13118d35bf.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/05/14/15/47/a7e9fca522feef893a09e8e0e4b737c441f9e8b0.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/05/14/14/30/86e827c9665cfc291417d389a98696e65bd1c5da.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/05/14/14/30/c12f4e7728402d191fd458bd3ff9276db85ebbdd.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/05/14/14/30/a4b1ce6506a849f74aa222dc0e94caab616ccad4.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/05/14/14/30/d11f041a7a6b6e941abce94f475ed4d22cd7aaec.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/05/14/14/30/3698e7283a67c518aa812e47ee7b76720df3aed5.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/05/14/14/30/c346e50ce8328d89b204a3a322d2b2b5305fd131.webp</foto>
+    </fotos>
+    <tipologias>
+      <tipologia>
+        <dormitorios>1</dormitorios>
+        <area>0</area>
+      </tipologia>
+    </tipologias>
+  </listing>
 </listings>
