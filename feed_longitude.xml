@@ -1836,13 +1836,46 @@
       <foto>https://cdn.longitude.com.br/2026/06/01/15/14/2f65c133856771e978f58b31e19316c874fe1a9f.webp</foto>
       <foto>https://cdn.longitude.com.br/2026/06/01/15/14/fa1f77f0f94b9e522d495ae714a0f3d49d17453b.webp</foto>
       <foto>https://cdn.longitude.com.br/2026/06/01/15/14/9425f807d7171b5d4eb14f3f03e2f34554cc5f88.webp</foto>
-      <foto>https://cdn.longitude.com.br/2026/05/29/14/03/46c420f7adb382d1a5e010ce29d1dd9cd51a823b.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/06/24/14/44/9e56466f62976d1c2abd1ef3a28e8ea8eae0f1f5.webp</foto>
       <foto>https://cdn.longitude.com.br/2026/06/01/15/14/058acc604751d464da86fea40515abbc44d49baf.webp</foto>
       <foto>https://cdn.longitude.com.br/2026/05/29/14/02/1f830ce64df55a43118e1e5e2ef95a3fd8122588.webp</foto>
     </fotos>
     <tipologias>
       <tipologia>
         <dormitorios>1</dormitorios>
+        <area>0</area>
+      </tipologia>
+    </tipologias>
+  </listing>
+  <listing>
+    <id>LONG-ITUDEESTACAOJOSEBONIFACIO</id>
+    <titulo>LONGITUDE ESTACAO JOSE BONIFACIO</titulo>
+    <tipo>Apartamento</tipo>
+    <preco>0</preco>
+    <cidade>Sao Paulo</cidade>
+    <estado>SP</estado>
+    <bairro>José Bonifácio</bairro>
+    <endereco>Rua Amanari, s/n</endereco>
+    <status>Lançamento</status>
+    <url>https://www.longitude.com.br/imoveis/sao-paulo/apartamento/longitude-estacao-jose-bonifacio</url>
+    <descricao>Além disso, o empreendimento traz diferenciais que fazem a diferença na rotina, como condomínio acessível, quatro elevadores por torre, dispositivos economizadores de água, sensores de presença nas áreas comuns e projeto de paisagismo exclusivo.</descricao>
+    <fotos>
+      <foto>https://cdn.longitude.com.br/2026/06/10/16/38/0643ea54ae7cd9ca24faf4da37004b508c289fcf.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/06/24/09/58/8648d55c89cbb0eebaf1e4e42c619635f824fc18.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/06/24/09/44/d5d2d2ef52b989d7d0fb21ace142c163af7c68ac.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/06/10/16/39/96fc83df43d906a85f56e9931d4e55ad2ae3b797.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/06/24/09/48/1bd990e4db4520eeb13a3772aa5dfb78f4eea6b8.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/06/24/09/56/e6330d03ce6c172c51332e8dc9f8629290efc011.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/06/24/09/56/5e6f005cf80a6abe8812b1195bc0e28d72772d44.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/06/24/09/56/c445b76f00a4525bcae0869b3540c332ac7b7b6d.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/06/24/09/56/c7cfc0032d6f091ceec93f577454a043a455db6f.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/06/24/09/56/c49ced7b5524534dbac7dd7e3e40063b8223d087.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/06/24/09/56/377429283b1694a7b5ac1734ca685399f1b43b3d.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/06/24/09/56/3bebd95f131515bd4595e8332ab1c3bbb1575d79.webp</foto>
+    </fotos>
+    <tipologias>
+      <tipologia>
+        <dormitorios>2</dormitorios>
         <area>0</area>
       </tipologia>
     </tipologias>
