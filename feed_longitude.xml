@@ -1887,4 +1887,44 @@
       </tipologia>
     </tipologias>
   </listing>
+  <listing>
+    <id>LONG-ESTACAOTUCURUVI</id>
+    <titulo>ESTACAO TUCURUVI</titulo>
+    <tipo>Apartamento</tipo>
+    <preco>0</preco>
+    <cidade>Sao Paulo</cidade>
+    <estado>SP</estado>
+    <bairro>Tucuruvi</bairro>
+    <endereco>Rua São Nestor, 390 x Rua Purus, 361</endereco>
+    <status>Lançamento</status>
+    <url>https://www.longitude.com.br/imoveis/sao-paulo/apartamento/estacao-tucuruvi</url>
+    <descricao>Morar bem é viver com mais praticidade, mobilidade e liberdade para aproveitar o que realmente importa. É com esse propósito que nasce o Longitude Estação Tucuruvi, um empreendimento desenvolvido para quem deseja conquistar o primeiro imóvel, investir no futuro ou encontrar um apartamento que acompanhe diferentes momentos da vida. Diferenciais: Churrasqueira, Academia, Coworking, 1 Vaga(s).</descricao>
+    <features>Churrasqueira,Academia,Coworking,1 Vaga(s)</features>
+    <fotos>
+      <foto>@images/placeholders/1700x1200.jpg</foto>
+      <foto>https://cdn.longitude.com.br/2026/07/22/17/07/87b1ee63d8de63d5c00731517bfffb6394dc5614.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/07/22/17/07/5bf6f5b8f6126ad0a72baefe67860dcfd1a48baf.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/07/22/17/07/85c153cecb4dbec3611decc97a4c947b3fe3554e.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/07/22/17/07/0fd8944d928e7a73c759b24072c2bcf40149d603.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/07/22/17/07/6c798a82d4b93bc589f3d5a1a8175f9dcd9a7a84.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/07/22/17/07/c698b874bcc0db5062e94afa22cef7214fa4c651.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/07/22/17/07/8ce50822b7ff54c30b31cfbb3102a62fb864beb7.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/07/22/17/07/238adbf69a9304af5f4006dba310e4b9c892002c.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/07/22/17/07/1d04bc42ddc2ad2bfb2f87adbe66d47820065721.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/07/22/17/06/4716bc6557431e1b7c362fe1192e389d47908040.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/07/22/17/06/4b3d61786a8baa850d7025f163e0819d57793636.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/07/22/17/05/9f3cf5d87408dcbdfa4478cd72539f585f061587.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/07/22/17/05/0088feae09c11f22a7052f0e6ca71a208b2ce720.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/07/22/17/05/d9c0f49ad2a1795370450cc4d8139ff4c280585d.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/07/22/17/05/4a3d5d1d74bd9109ffceae29b0a65ad2aaa77bbd.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/07/22/17/05/cb5b8d4c5edcd99339b2f4d6e68ffad4576e323a.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/07/22/17/05/c428691b587362def31a719a4b26eeac4be22e29.webp</foto>
+    </fotos>
+    <tipologias>
+      <tipologia>
+        <dormitorios>2</dormitorios>
+        <area>0</area>
+      </tipologia>
+    </tipologias>
+  </listing>
 </listings>
