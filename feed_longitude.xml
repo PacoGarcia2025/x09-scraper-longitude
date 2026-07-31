@@ -1777,45 +1777,6 @@
     </tipologias>
   </listing>
   <listing>
-    <id>LONG-VERTICERESIDENCIAL</id>
-    <titulo>VERTICE RESIDENCIAL</titulo>
-    <tipo>Apartamento</tipo>
-    <preco>0</preco>
-    <cidade>Monte Mor</cidade>
-    <estado>SP</estado>
-    <bairro>Rezende</bairro>
-    <endereco>Av. Lázaro Maciel do Carmo, s/n</endereco>
-    <status>Lançamento</status>
-    <url>https://www.longitude.com.br/imoveis/monte-mor/apartamento/vertice-residencial</url>
-    <descricao>Localizado na Avenida Lázaro Maciel do Carmo, no bairro Rezende, o Vértice está inserido em uma região com fácil acesso, próxima a comércios e serviços essenciais, oferecendo mobilidade e comodidade para quem busca qualidade de vida sem abrir mão da praticidade. Diferenciais: Piscina, Churrasqueira, Playground, Quadra.</descricao>
-    <features>Piscina,Churrasqueira,Playground,Quadra</features>
-    <fotos>
-      <foto>https://cdn.longitude.com.br/2026/05/06/15/17/1d9f2cde5714c53a59fd26cc5a4820e452c64df2.webp</foto>
-      <foto>https://cdn.longitude.com.br/2026/07/23/11/03/28eeadb10e11f8d3af8608b2062c42aace29cf6e.webp</foto>
-      <foto>https://cdn.longitude.com.br/2026/07/23/11/03/ad608fd4a29a83a686f16822ae754a87e46b60f6.webp</foto>
-      <foto>https://cdn.longitude.com.br/2026/07/23/11/03/8e13a5800deeb1821d1064d428e576f44a20203c.webp</foto>
-      <foto>https://cdn.longitude.com.br/2026/07/23/11/03/a6a22fb3232f6f95df231aa34f7a683187c0043b.webp</foto>
-      <foto>https://cdn.longitude.com.br/2026/07/23/11/03/5b4eca2d07d19b0ba2012d6c5e942c071f4002ff.webp</foto>
-      <foto>https://cdn.longitude.com.br/2026/07/23/11/03/37a94b4da6d856c192c082e615c6f828bc6e999f.webp</foto>
-      <foto>https://cdn.longitude.com.br/2026/07/23/11/03/2cf7c8601544ef626dc303fc2cf66af9430794e8.webp</foto>
-      <foto>https://cdn.longitude.com.br/2026/07/23/11/03/b4bc9bdc8b8dd03c1540e42deb566309e17b5321.webp</foto>
-      <foto>https://cdn.longitude.com.br/2026/05/14/16/30/12a7670cb0100550b7b53feada948e17e11d9d88.webp</foto>
-      <foto>https://cdn.longitude.com.br/2026/06/29/09/34/44c7e731d156704a08a405bf20ce19bdb59c6b59.webp</foto>
-      <foto>https://cdn.longitude.com.br/2026/06/29/09/35/35ee0d022d5bc6b1e0c5d5a2c45c1fbe9ecda367.webp</foto>
-      <foto>https://cdn.longitude.com.br/2026/06/29/09/35/183d8ff74cb9fd35b47392a752ed64b7f1bfd64f.webp</foto>
-      <foto>https://cdn.longitude.com.br/2026/06/29/09/35/5850757d4cce2cbb1a1c565e13ab8208d8972087.webp</foto>
-      <foto>https://cdn.longitude.com.br/2026/06/29/09/35/9f204e22866815ec2e07b9aa60a4370355278c43.webp</foto>
-      <foto>https://cdn.longitude.com.br/2026/06/29/09/35/58ff74bf0dc183cdef67ef17750add7dd8f48945.webp</foto>
-      <foto>https://cdn.longitude.com.br/2026/06/29/09/35/426a083842efcbccb490cc9ae7c697191e4ca056.webp</foto>
-    </fotos>
-    <tipologias>
-      <tipologia>
-        <dormitorios>2</dormitorios>
-        <area>0</area>
-      </tipologia>
-    </tipologias>
-  </listing>
-  <listing>
     <id>LONG-ONGITUDEESTACAOGUAIANASES</id>
     <titulo>LONGITUDE ESTACAO GUAIANASES</titulo>
     <tipo>Apartamento</tipo>
@@ -1933,6 +1894,45 @@
       <foto>https://cdn.longitude.com.br/2026/07/22/17/05/4a3d5d1d74bd9109ffceae29b0a65ad2aaa77bbd.webp</foto>
       <foto>https://cdn.longitude.com.br/2026/07/22/17/05/cb5b8d4c5edcd99339b2f4d6e68ffad4576e323a.webp</foto>
       <foto>https://cdn.longitude.com.br/2026/07/22/17/05/c428691b587362def31a719a4b26eeac4be22e29.webp</foto>
+    </fotos>
+    <tipologias>
+      <tipologia>
+        <dormitorios>2</dormitorios>
+        <area>0</area>
+      </tipologia>
+    </tipologias>
+  </listing>
+  <listing>
+    <id>LONG-VERTICERESIDENCIAL2</id>
+    <titulo>VERTICE RESIDENCIAL 2</titulo>
+    <tipo>Apartamento</tipo>
+    <preco>0</preco>
+    <cidade>Monte Mor</cidade>
+    <estado>SP</estado>
+    <bairro>Rezende</bairro>
+    <endereco>Av. Lázaro Maciel do Carmo, s/n</endereco>
+    <status>Lançamento</status>
+    <url>https://www.longitude.com.br/imoveis/monte-mor/apartamento/vertice-residencial-2</url>
+    <descricao>Localizado na Avenida Lázaro Maciel do Carmo, no bairro Rezende, o Vértice está inserido em uma região com fácil acesso, próxima a comércios e serviços essenciais, oferecendo mobilidade e comodidade para quem busca qualidade de vida sem abrir mão da praticidade. Diferenciais: Piscina, Playground, Academia, Quadra, Bicicletário.</descricao>
+    <features>Piscina,Playground,Academia,Quadra,Bicicletário</features>
+    <fotos>
+      <foto>https://cdn.longitude.com.br/2026/07/30/17/29/e7b195677d1eb15c300ca09dffe7ea9a4f3ba812.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/07/30/17/07/6cdb7d014354027e88835315da2aa61298094c86.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/07/30/17/06/40265f3d12858e572347402e1a30db9543680d09.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/07/30/17/06/805762c55c109115d045584fb39760065ec7be1f.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/07/30/17/06/04eed3dfb4e8cd87697f7aa751510f77e4106922.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/07/30/17/06/f6180b79d6303dc4393c65e26a0c2cd009150e1d.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/07/30/17/06/85900d601f4228da2cb22f6e4b79b30511ed35d0.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/07/30/17/06/f0e07a19eb4642402f1034d2ace79b26be81b3fc.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/07/30/17/06/9459cfe0ce9fdb74e06fcfabbb07df8ce60965dc.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/07/30/17/39/68fd5ac10afd2793584afcd8b7c1679ff1bd3871.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/07/30/17/01/2bd44a6254225b87e347aa86888f129bee3ff5e8.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/07/30/16/57/0a9ecc9f027ac94690f3bee73af90b41f0af2826.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/07/30/16/57/6256ff15a6686ece5b077fcfeabc3c1fadaa5da8.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/07/30/16/57/314832e488c766fc50ed088d5de9ac5d1ff9a09d.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/07/30/16/57/022c4479e488b21492f98a3d1356c5fb5640655b.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/07/30/16/57/3e532ca87dd7ca653fca25c9e982914af18886ed.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/07/30/16/57/29f55bb96f45b407b9e3e555456a106595dc5a6a.webp</foto>
     </fotos>
     <tipologias>
       <tipologia>
