@@ -879,42 +879,19 @@
     <preco>0</preco>
     <cidade>Mirassol</cidade>
     <estado>SP</estado>
-    <bairro>Perímetro Urbano</bairro>
-    <endereco>Estrada Mun Antônio Navarrete Barroso</endereco>
-    <status>Lançamento</status>
+    <bairro>A Consultar</bairro>
+    <endereco>A Consultar</endereco>
+    <status>Em Obras</status>
     <url>https://www.longitude.com.br/imoveis/mirassol/casa/villa-home-resort</url>
-    <descricao>VillàHomeResort  seu refúgio particular em Mirassol Imagine chegar em casa e sentir que o melhor clube da cidade fica dentro do seu quintal. No Villà Home Resort, você tem a tranquilidade, o tempo e a privacidade que sempre sonhou  sem abrir mão da praticidade de estar no ponto mais nobre de Mirassol, a dois passos da Rod. Washington Luiz, do Damha e a poucos minutos de SãoJosé do RioPreto. Diferenciais: Piscina, 2 Vaga(s).</descricao>
-    <features>Piscina,2 Vaga(s)</features>
+    <descricao>R. das Orquídeas 737, sala 404
+Torre Corporate - Jardim Pompéia Indaiatuba, SP - CEP 13345-040 Diferenciais: 1 Vaga(s).</descricao>
+    <features>1 Vaga(s)</features>
     <fotos>
-      <foto>https://cdn.longitude.com.br/2023/10/16/19/45/275362f5602afafb0a761b51e27d278632b9f18b.webp</foto>
-      <foto>https://cdn.longitude.com.br/2024/01/29/20/13/c463911b14b2e5b58d34b66db9f658a610968b19.webp</foto>
-      <foto>https://cdn.longitude.com.br/2024/01/29/20/13/129142fc8fac1bd5c58ed6278489bd4281dc5170.webp</foto>
-      <foto>https://cdn.longitude.com.br/2024/01/29/20/13/27d5a58d64e8097876a3d28edc3094d0f8fb7d7e.webp</foto>
-      <foto>https://cdn.longitude.com.br/2024/01/29/20/13/25911887d0e96ae72f85194923a82be499a35e1d.webp</foto>
-      <foto>https://cdn.longitude.com.br/2024/01/29/20/13/f903108f9d500a9bd24c25ec35d0acef654d1d6b.webp</foto>
-      <foto>https://cdn.longitude.com.br/2024/01/29/20/09/b8666fd2010e3670ddf932c264a60517bb8c384b.webp</foto>
-      <foto>https://cdn.longitude.com.br/2024/01/29/20/09/364e896b6151b3cf38de26f9bc3a1eaf71abc2f0.webp</foto>
-      <foto>https://cdn.longitude.com.br/2024/01/29/20/08/06b9a51822e9f58e8823ed1d356721f37f997042.webp</foto>
-      <foto>https://cdn.longitude.com.br/2024/01/29/20/08/190d11215f3ebee4d8b4dc7ea78cf1e059cebbd6.webp</foto>
-      <foto>https://cdn.longitude.com.br/2024/01/29/20/08/89a7d02126593fc6fe80feb55620dc31e51b9753.webp</foto>
-      <foto>https://cdn.longitude.com.br/2024/01/29/20/08/f2e2d9a392e91b0d50139e918e7ac302ff937209.webp</foto>
-      <foto>https://cdn.longitude.com.br/2024/01/29/20/08/938f90b11709df07ac02a80de2287f1414fac538.webp</foto>
-      <foto>https://cdn.longitude.com.br/2024/01/29/20/08/339bf3116170666f9309d5bad04b3ff50f3fcb82.webp</foto>
-      <foto>https://cdn.longitude.com.br/2024/01/29/20/08/a4b335837e12fa71f93a79a8e08d81284b38eb57.webp</foto>
-      <foto>https://cdn.longitude.com.br/2024/01/29/20/08/5bd410cd0587c5f41376e1b46db86e1178797276.webp</foto>
-      <foto>https://cdn.longitude.com.br/2024/01/29/20/08/1814181fe8a74cdcbede3118ca514bcb24e91f6f.webp</foto>
-      <foto>https://cdn.longitude.com.br/2024/01/29/20/08/9da5661a14b542d22f6db5830e6cb02fa180a306.webp</foto>
-      <foto>https://cdn.longitude.com.br/2024/01/29/20/08/fdac08742e4810b79aa155a4cd64e84e4542b558.webp</foto>
-      <foto>https://cdn.longitude.com.br/2024/01/29/20/08/63e0e7b55ecfddec55e079b1f69d13e10d1da9e1.webp</foto>
-      <foto>https://cdn.longitude.com.br/2024/01/29/20/08/964ca077c67c095e3131a236dbe1219835fc6049.webp</foto>
-      <foto>https://cdn.longitude.com.br/2024/01/29/20/08/54c0cd4f510685a29346c73011e6b72e2e792ab6.webp</foto>
-      <foto>https://cdn.longitude.com.br/2024/01/29/20/08/064dcb4d5af47fe7ec2f410bab3f1db9c0ba7842.webp</foto>
-      <foto>https://cdn.longitude.com.br/2024/01/29/20/08/f329a4dfd6a5c9914a277400f1e35c727bfef05c.webp</foto>
-      <foto>https://cdn.longitude.com.br/2024/01/29/20/08/130a9b214b3df7285f0c319227db073f236e8708.webp</foto>
+      <foto>https://www.longitude.com.br/assets/cbe1cac9/images/404-not-found.svg</foto>
     </fotos>
     <tipologias>
       <tipologia>
-        <dormitorios>3</dormitorios>
+        <dormitorios>2</dormitorios>
         <area>0</area>
       </tipologia>
     </tipologias>
@@ -1334,7 +1311,7 @@
     <estado>SP</estado>
     <bairro>Fazenda Piedade</bairro>
     <endereco>Rua José Aparecido Custódio</endereco>
-    <status>Lançamento</status>
+    <status>Em Obras</status>
     <url>https://www.longitude.com.br/imoveis/mirassol/apartamento/solis</url>
     <descricao>Aqui, conforto e praticidade andam lado a lado. Imagine morar em um lugar com piscina com raia, quadra de areia, playground, espaço festas, espaço churras, play pet, e até chute a gol! Tudo isso em um projeto moderno, com ambientes integrados e bem distribuídos, pensado para você viver com mais qualidade de vida  sem abrir mão da economia. Diferenciais: Piscina, Playground, Quadra, 1 Vaga(s).</descricao>
     <features>Piscina,Playground,Quadra,1 Vaga(s)</features>
@@ -1526,7 +1503,7 @@
     <estado>SP</estado>
     <bairro>Tiradentes</bairro>
     <endereco>Rua São Valfredo, 100</endereco>
-    <status>Lançamento</status>
+    <status>Em Obras</status>
     <url>https://www.longitude.com.br/imoveis/sao-paulo/apartamento/longitude-citta</url>
     <descricao>O Longitude Città é o novo lançamento na Cidade Tiradentes, na Zona Leste de São Paulo. Pensado para quem busca mais liberdade e autonomia, o Città traz um conceito inovador de planta multidorm, você escolhe como quer usar seu espaço e transforma o apartamento na extensão da sua identidade. Diferenciais: Quadra.</descricao>
     <features>Quadra</features>
@@ -1615,7 +1592,7 @@
     <estado>SP</estado>
     <bairro>Vila Perus</bairro>
     <endereco>Rua Roque Callage</endereco>
-    <status>Lançamento</status>
+    <status>Em Obras</status>
     <url>https://www.longitude.com.br/imoveis/sao-paulo/apartamento/longitude-perus</url>
     <descricao>O Longitude Perus é o novo lançamento na Vila Perus, na Zona Norte de São Paulo. Pensado para quem busca liberdade, praticidade e conforto, o Perus traz o conceito inovador de planta multidorm, permitindo que você escolha como quer usar seu espaço e transformar o apartamento no ritmo do seu estilo de vida. Diferenciais: Quadra.</descricao>
     <features>Quadra</features>
