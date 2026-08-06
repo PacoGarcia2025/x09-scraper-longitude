@@ -873,30 +873,6 @@
     </tipologias>
   </listing>
   <listing>
-    <id>LONG-VILLAHOMERESORT</id>
-    <titulo>VILLA HOME RESORT</titulo>
-    <tipo>Apartamento</tipo>
-    <preco>0</preco>
-    <cidade>Mirassol</cidade>
-    <estado>SP</estado>
-    <bairro>A Consultar</bairro>
-    <endereco>A Consultar</endereco>
-    <status>Em Obras</status>
-    <url>https://www.longitude.com.br/imoveis/mirassol/casa/villa-home-resort</url>
-    <descricao>R. das Orquídeas 737, sala 404
-Torre Corporate - Jardim Pompéia Indaiatuba, SP - CEP 13345-040 Diferenciais: 1 Vaga(s).</descricao>
-    <features>1 Vaga(s)</features>
-    <fotos>
-      <foto>https://www.longitude.com.br/assets/cbe1cac9/images/404-not-found.svg</foto>
-    </fotos>
-    <tipologias>
-      <tipologia>
-        <dormitorios>2</dormitorios>
-        <area>0</area>
-      </tipologia>
-    </tipologias>
-  </listing>
-  <listing>
     <id>LONG-ORION</id>
     <titulo>ORION</titulo>
     <tipo>Apartamento</tipo>
