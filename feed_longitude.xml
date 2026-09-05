@@ -1895,4 +1895,36 @@
       </tipologia>
     </tipologias>
   </listing>
+  <listing>
+    <id>LONG-LONGITUDEESTACAOSOCORRO2</id>
+    <titulo>LONGITUDE ESTACAO SOCORRO 2</titulo>
+    <tipo>Apartamento</tipo>
+    <preco>0</preco>
+    <cidade>Sao Paulo</cidade>
+    <estado>SP</estado>
+    <bairro>Socorro</bairro>
+    <endereco>Rua Sete de Julho, 202 x Rua Domingos Jorge, S/N</endereco>
+    <status>Lançamento</status>
+    <url>https://www.longitude.com.br/imoveis/sao-paulo/apartamento/longitude-estacao-socorro-2</url>
+    <descricao>Em uma região estratégica de São Paulo, nasce um projeto pensado para acompanhar diferentes momentos da vida: o Longitude Estação Socorro. Mais do que morar, é ter liberdade para escolher um espaço que combina com a sua rotina. São apartamentos com opções de studios, apês 1 ou 2 dormitórios, com plantas que valorizam praticidade e aproveitamento dos ambientes. O empreendimento conta com uma torre e 698 unidades, distribuídas em uma implantação moderna e funcional, com uma estrutura de lazer completa para deixar o dia a dia mais leve, prático e conectado. E tem mais: o empreendimento conta com lazer no rooftop, criando espaços para aproveitar, relaxar e viver bons momentos sem precisar sair de casa. Tudo pensado para facilitar a rotina e oferecer mais possibilidades em cada fase da vida. Na Rua Sete de Julho, 202 x Rua Domingos Jorge, S/N, o Longitude Estação Socorro chega com uma proposta que combina praticidade, lazer e diferentes possibilidades de moradia em um só endereço.</descricao>
+    <fotos>
+      <foto>https://cdn.longitude.com.br/2026/09/04/15/44/286c2b4ae4136070347b61661c0cd7d19123a862.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/09/04/15/43/7de0cd30ea2320cad17d43916a6b63f6bf12a60d.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/09/04/15/43/1db15ef11bb9cc722afddae77046ed0eea4270dd.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/09/04/15/43/2a4138c4c0c98d3b18e0ba8e2fc88a0c5463fcf1.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/09/04/15/31/c651b751b4a689dba66116d594768d925444729b.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/09/04/15/31/5b79a5e6534b4eb175cd444145068f5ca78afa67.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/09/04/15/31/fcf23a5572af5981512468273cac556fb5dd8c94.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/09/04/15/31/68e8e0d796ccf9ab4f80b38a702bc01ea607362a.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/09/04/15/31/7b2599c617a1934bbe81a91dad890dd9b8d5754c.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/09/04/15/31/91d26f2624fe4eba91eeded75bbeabff0fb96721.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/09/04/15/31/8bfbf3e6985920a47918c8f2af4bf8b7c437e49f.webp</foto>
+    </fotos>
+    <tipologias>
+      <tipologia>
+        <dormitorios>2</dormitorios>
+        <area>0</area>
+      </tipologia>
+    </tipologias>
+  </listing>
 </listings>
