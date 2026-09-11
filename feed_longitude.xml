@@ -278,6 +278,53 @@
     </tipologias>
   </listing>
   <listing>
+    <id>LONG-PARQUEAMIZADE</id>
+    <titulo>PARQUE AMIZADE</titulo>
+    <tipo>Apartamento</tipo>
+    <preco>0</preco>
+    <cidade>Sumare</cidade>
+    <estado>SP</estado>
+    <bairro>Pq. Amizade</bairro>
+    <endereco>Rua 11 de Agosto, 274</endereco>
+    <status>Pronto para Morar</status>
+    <url>https://www.longitude.com.br/imoveis/sumare/apartamento/parque-amizade</url>
+    <descricao>Aqui no Residencial Parque Amizade, apostamos que será a varanda! Conheça seu futuro apê de 2 dormitórios. com uma área de lazer completíssima: tem churrasqueira, salão de festa e aquela piscininha perfeita para curtir o final de semana do jeito certo! Curtiu? Então desça a página e descubra tudo o que o Parque Amizade tem a oferecer ;) Diferenciais: Churrasqueira, 1 Vaga(s).</descricao>
+    <features>Churrasqueira,1 Vaga(s)</features>
+    <fotos>
+      <foto>https://cdn.longitude.com.br/2022/04/11/16/10/5b8aa3d3c36fd6ddd2666e74bf0ff3887f5ea774.webp</foto>
+      <foto>https://cdn.longitude.com.br/2022/02/24/15/28/8d375d821f7abfecabf960e4c97244bea0bbbadc.webp</foto>
+      <foto>https://cdn.longitude.com.br/2022/02/24/15/28/44b724a59bed83562e46a37b44bcccdc92d68429.webp</foto>
+      <foto>https://cdn.longitude.com.br/2022/02/24/15/28/5e8add67cc6bf8522e97fa1d0b689aba99c1ec4b.webp</foto>
+      <foto>https://cdn.longitude.com.br/2022/02/24/15/28/0149a5e84ee091c6a84dbf47d7e9a7c52d40eec9.webp</foto>
+      <foto>https://cdn.longitude.com.br/2022/02/24/15/28/de3fd17f71d318d515e83cf669f531fb21108e75.webp</foto>
+      <foto>https://cdn.longitude.com.br/2022/02/24/15/28/192f999c59715ed3619325719b474694b66d72e2.webp</foto>
+      <foto>https://cdn.longitude.com.br/2022/02/24/15/28/744f508ab6f6ec49022734f7f7a4bc880a1f2e50.webp</foto>
+      <foto>https://cdn.longitude.com.br/2022/02/24/15/28/f435312c85941b32fc359da55f47c8aa42ef078c.webp</foto>
+      <foto>https://cdn.longitude.com.br/2022/02/24/15/28/19ceb0ea04f4a93c13f908a66221f28de4d69070.webp</foto>
+      <foto>https://cdn.longitude.com.br/2022/02/24/15/28/692772157af3c794f158c7268c719d28ea3fa0f7.webp</foto>
+      <foto>https://cdn.longitude.com.br/2022/02/24/15/28/c380b9e7c0f44c5d00374c673d5f2b6f9066ff1d.webp</foto>
+      <foto>https://cdn.longitude.com.br/2022/02/24/15/28/39937ae4dfb3c5c0ea745b3ac9855bcf7f7ee872.webp</foto>
+      <foto>https://cdn.longitude.com.br/2022/02/24/15/28/fc89144b394ef3cdc85a6ec4fba2e9a8076bba75.webp</foto>
+      <foto>https://cdn.longitude.com.br/2022/02/24/15/28/bab8ea9c079f680deaf643c2c420025b7a690f2e.webp</foto>
+      <foto>https://cdn.longitude.com.br/2022/02/24/15/25/32b8a6e8d5289a6b73d440024f7a785591d56c2f.webp</foto>
+      <foto>https://cdn.longitude.com.br/2022/02/24/15/25/cf1ec6861c93d1b96d0e036102dea99c4f44312e.webp</foto>
+      <foto>https://cdn.longitude.com.br/2022/02/24/15/25/33d6ad8ece5b07a1d5a1f156da2788b09f93de58.webp</foto>
+      <foto>https://cdn.longitude.com.br/2022/02/24/15/25/e1c4b6fc9489dce0f20835bd319655e7b5df120d.webp</foto>
+      <foto>https://cdn.longitude.com.br/2022/02/24/15/25/5c7f7938f332ec9c10514057c5c747cfeb318e82.webp</foto>
+      <foto>https://cdn.longitude.com.br/2022/02/24/15/25/eccd3818d45d38bf2682d915b31027b0c6e87176.webp</foto>
+      <foto>https://cdn.longitude.com.br/2022/02/24/15/25/95e882a383f9e4c3f2e42e54b9a46aec5635ce49.webp</foto>
+      <foto>https://cdn.longitude.com.br/2022/02/24/15/25/3570cc8ca8ae7aeec2819f60b3a8dc849f096f1a.webp</foto>
+      <foto>https://cdn.longitude.com.br/2022/02/24/15/25/801806da5003bfa597cac62cd67443219aa9b2f3.webp</foto>
+      <foto>https://cdn.longitude.com.br/2022/08/23/15/04/c248bdf95b7fa34a8b3ced8db8595bd853219649.webp</foto>
+    </fotos>
+    <tipologias>
+      <tipologia>
+        <dormitorios>2</dormitorios>
+        <area>0</area>
+      </tipologia>
+    </tipologias>
+  </listing>
+  <listing>
     <id>LONG-PERFETTO</id>
     <titulo>PERFETTO</titulo>
     <tipo>Apartamento</tipo>
