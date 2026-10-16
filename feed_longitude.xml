@@ -1949,4 +1949,40 @@
       </tipologia>
     </tipologias>
   </listing>
+  <listing>
+    <id>LONG-NGITUDEPARQUEGUARAPIRANGA</id>
+    <titulo>LONGITUDE PARQUE GUARAPIRANGA</titulo>
+    <tipo>Apartamento</tipo>
+    <preco>0</preco>
+    <cidade>Sao Paulo</cidade>
+    <estado>SP</estado>
+    <bairro>Jardim São Luis</bairro>
+    <endereco>Estrada M' Boi Mirim, 589 x Rua Manuel Pinto Guedes S/N</endereco>
+    <status>Lançamento</status>
+    <url>https://www.longitude.com.br/imoveis/sao-paulo/apartamento/longitude-parque-guarapiranga</url>
+    <descricao>Mais do que morar, é ter liberdade para escolher um espaço que combina com a sua rotina. São apartamentos com opções de studios e apês de 1 ou 2 dormitórios, com plantas que valorizam praticidade e aproveitamento dos ambientes.</descricao>
+    <fotos>
+      <foto>https://cdn.longitude.com.br/2026/10/15/15/16/e96fb055ddcc4c522571a44e6aa5676ec6755447.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/10/15/15/22/ce68175c4829482218e00b8127c60cdf38e81e71.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/10/15/15/21/2a046e86bcea37bd6e26c7b72ae99fac68819709.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/10/15/15/21/9e57afa1687579b3cb928bf3591e39d0097c050f.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/10/15/15/21/95a725bffe8ed92d924aee26dea21d267bde680e.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/10/15/15/36/49d701af2c201157d2adcc8e2948d38efe81c0cc.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/10/15/15/20/09a17bd3e2fb125a82c34ee444eb74bf5fce98ad.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/10/15/15/20/77b2f69a985bc55be93676fca23ce6e3f7bb57bf.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/10/15/15/17/ecc6d0cd648e15e7f80473a0fb5baa6649623e65.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/10/15/15/17/e04ae2f295ab1e2aff635a27719c97a9f311ff0f.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/10/15/15/17/02444ef70b1de691ea1903ba57d08c5d75be0ab7.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/10/15/15/17/b8533942ff94d98f19833a1fff50b31b4118f92b.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/10/15/15/16/901dfb01569d337a89cc18f9a66f9dc466a89580.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/10/15/15/16/01b76e3c06a9d2f0bad771c96b0bb269cd7ff486.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/10/15/15/16/7c678ad4040b93d42c6bf774d340c1dd44584d5a.webp</foto>
+    </fotos>
+    <tipologias>
+      <tipologia>
+        <dormitorios>2</dormitorios>
+        <area>0</area>
+      </tipologia>
+    </tipologias>
+  </listing>
 </listings>
