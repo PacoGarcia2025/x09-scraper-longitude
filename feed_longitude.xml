@@ -1968,8 +1968,8 @@
       <foto>https://cdn.longitude.com.br/2026/10/15/15/21/9e57afa1687579b3cb928bf3591e39d0097c050f.webp</foto>
       <foto>https://cdn.longitude.com.br/2026/10/15/15/21/95a725bffe8ed92d924aee26dea21d267bde680e.webp</foto>
       <foto>https://cdn.longitude.com.br/2026/10/15/15/36/49d701af2c201157d2adcc8e2948d38efe81c0cc.webp</foto>
-      <foto>https://cdn.longitude.com.br/2026/10/15/15/20/09a17bd3e2fb125a82c34ee444eb74bf5fce98ad.webp</foto>
-      <foto>https://cdn.longitude.com.br/2026/10/15/15/20/77b2f69a985bc55be93676fca23ce6e3f7bb57bf.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/10/19/18/52/d31216a100e2a7d2d84a5e9c982d53497f6076c8.webp</foto>
+      <foto>https://cdn.longitude.com.br/2026/10/19/18/52/c238ccd1774d165872feb96c3993f129e7a4a595.webp</foto>
       <foto>https://cdn.longitude.com.br/2026/10/15/15/17/ecc6d0cd648e15e7f80473a0fb5baa6649623e65.webp</foto>
       <foto>https://cdn.longitude.com.br/2026/10/15/15/17/e04ae2f295ab1e2aff635a27719c97a9f311ff0f.webp</foto>
       <foto>https://cdn.longitude.com.br/2026/10/15/15/17/02444ef70b1de691ea1903ba57d08c5d75be0ab7.webp</foto>
@@ -1977,6 +1977,29 @@
       <foto>https://cdn.longitude.com.br/2026/10/15/15/16/901dfb01569d337a89cc18f9a66f9dc466a89580.webp</foto>
       <foto>https://cdn.longitude.com.br/2026/10/15/15/16/01b76e3c06a9d2f0bad771c96b0bb269cd7ff486.webp</foto>
       <foto>https://cdn.longitude.com.br/2026/10/15/15/16/7c678ad4040b93d42c6bf774d340c1dd44584d5a.webp</foto>
+    </fotos>
+    <tipologias>
+      <tipologia>
+        <dormitorios>2</dormitorios>
+        <area>0</area>
+      </tipologia>
+    </tipologias>
+  </listing>
+  <listing>
+    <id>LONG-LONGITUDEVILALIMAO</id>
+    <titulo>LONGITUDE VILA LIMAO</titulo>
+    <tipo>Apartamento</tipo>
+    <preco>0</preco>
+    <cidade>Sao Paulo</cidade>
+    <estado>SP</estado>
+    <bairro>Limão</bairro>
+    <endereco>Rua Doutor Morais Dantas, 195 Limão - São Paulo - SP - CEP: 02557-060</endereco>
+    <status>Lançamento</status>
+    <url>https://www.longitude.com.br/imoveis/sao-paulo/apartamento/longitude-vila-limao</url>
+    <descricao>São diferentes opções de apartamentos, com studios e unidades de 1 ou 2 dormitórios. Nos apês de 1 dormitório, você tem um cômodo extra que pode ganhar novas funções de acordo com a sua rotina: escritório, closet, espaço de estudos ou o que fizer mais sentido para você. Diferenciais: Playground, Academia, Salão de Festas, Quadra, Pet Place, Bicicletário, Coworking, 1 Vaga(s).</descricao>
+    <features>Playground,Academia,Salão de Festas,Quadra,Pet Place,Bicicletário,Coworking,1 Vaga(s)</features>
+    <fotos>
+      <foto>https://cdn.longitude.com.br/2026/10/20/09/37/a26f96297c14d32daae1ff7bfb543cc45b5c347a.webp</foto>
     </fotos>
     <tipologias>
       <tipologia>
